@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import crimera.patches.twitter.link.cleartrackingparams.fingerprints.AddSessionTokenFingerprint
+import crimera.patches.twitter.link.fingerprints.AddSessionTokenFingerprint
 
 // https://github.com/FrozenAlex/revanced-patches-new
 @Patch(
