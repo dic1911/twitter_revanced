@@ -12,7 +12,8 @@ import crimera.patches.twitter.link.fingerprints.AddSessionTokenFingerprint
 @Patch(
     name = "Clear tracking params",
     description = "Removes tracking parameters when sharing links",
-    compatiblePackages = [CompatiblePackage("com.twitter.android")]
+    compatiblePackages = [CompatiblePackage("com.twitter.android")],
+    use = false
 )
 @Suppress("unused")
 object ClearTrackingParamsPatch: BytecodePatch(

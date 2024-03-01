@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.annotation.Patch
 import crimera.patches.twitter.link.fingerprints.AddSessionTokenFingerprint
 
 @Patch(
-    name = "Custom sharing domain",
-    description = "Allows for changing the sharing link domain",
+    name = "Always use \"twitter.com\" as domain & no tracking param",
+    description = "Changes domain in url to twitter.com",
     compatiblePackages = [CompatiblePackage("com.twitter.android")]
 )
 @Suppress("unused")
@@ -23,17 +23,12 @@ object CustomSharingDomain: BytecodePatch(
             ?: throw PatchException("Fingerprint not found")
 
         result.mutableMethod.addInstructions(0, """
-            const-string v0, "twitter"
-            const-string v1, "fxtwitter"
-
-            invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-            move-result-object p0
-    
             const-string v0, "x.com"
-            const-string v1, "fixupx.com"
+            const-string v1, "twitter.com"
 
             invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; 
             move-result-object p0
+            return-object p0
         """.trimIndent())
     }
 }
