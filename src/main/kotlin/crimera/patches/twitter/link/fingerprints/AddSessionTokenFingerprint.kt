@@ -1,4 +1,4 @@
-package crimera.patches.twitter.link.cleartrackingparams.fingerprints
+package crimera.patches.twitter.link.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
